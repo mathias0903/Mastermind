@@ -2,7 +2,7 @@ import random
 
 
 class Datalag:
-    def __init__(self, brikker=4, muligheder=6, maks=10, *solution):
+    def __init__(self, brikker=4, muligheder=6, maks=10, solution=None):
         self.brikker = brikker
         self.muligheder = muligheder
         self.maks = maks
