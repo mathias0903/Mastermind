@@ -2,22 +2,26 @@ import datalag as dl
 
 
 class LogikLag:
-    def __init__(self, brikker=4, muligheder=6, maks=10, *solution):
-        self.data = dl.Datalag(brikker=brikker, muligheder=muligheder, maks=maks, *solution)
+    def __init__(self, brikker=4, muligheder=6, maks=10, solution=None):
+        self.data = dl.Datalag(brikker=brikker, muligheder=muligheder, maks=maks, solution=solution)
         self.running = True
 
 
     def gæt(self, *gæt):
-        if len(gæt) is self.data.getBrikker():
-            if all(0 <= value < self.data.getMuligheder() for value in gæt):
-                solution = self.data.getSolution()
-                for value in range(0, self.data.getMuligheder()):
+        if len(gæt) is self.data.brikker:
+            if all(0 <= value < self.data.muligheder for value in gæt):
+                solution = self.data.solution
+                total_color = 0
+                for value in range(0, self.data.muligheder):
                     a = gæt.count(value)
                     if a > solution.count(value):
                         a = solution.count(value)
-                b = 0
-                for value in range(0, self.data.getBrikker()-1):
+                    total_color += a
+                total_correct = 0
+                for value in range(0, self.data.brikker):
                     if gæt[value] is solution[value]:
-                        b += 1
-                return a, b
+                        total_correct += 1
+                if total_correct==4:
+                    return "you owned the libtards"
+                return total_color, total_correct
         return False

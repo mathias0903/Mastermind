@@ -6,9 +6,9 @@ class Datalag:
         self.brikker = brikker
         self.muligheder = muligheder
         self.maks = maks
-        if solution is None or not solution:
+        if solution is None:
             random.seed()
-            self.solution = (random.randint(0, muligheder-1) for i in range(brikker))
+            self.solution = tuple(random.randint(0, muligheder-1) for i in range(brikker))
         else:
             self.solution = solution
 
@@ -21,9 +21,9 @@ class Datalag:
     def solution(self, value):
         if not isinstance(value, tuple):
             raise TypeError("solution must be a tuple of ints")
-        if all(0 <= a < self.muligheder for a in value):
-            raise TypeError("solution must be a tuple of ints")
-        if len(value) is self.brikker:
+        if not all(0 <= a <= self.muligheder for a in value):
+            raise TypeError("values of solution must be between 0 and muligheder: "+str(self.muligheder))
+        if not len(value) is self.brikker:
             raise ValueError("solution must be the same size as defined in brikker")
         self._solution = value
 
