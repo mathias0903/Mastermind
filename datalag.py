@@ -30,10 +30,30 @@ class Datalag:
 
     @property
     def brikker(self):
-        return self._temperature
+        return self._brikker
 
     @brikker.setter
-    def temperature(self, value):
+    def brikker(self, value):
         if not isinstance(value, int):
             raise TypeError("Brikker must be a int")
-        self._temperature = value
+        self._brikker = value
+
+    @property
+    def muligheder(self):
+        return self._muligheder
+
+    @muligheder.setter
+    def muligheder(self, value):
+        if not isinstance(value, int):
+            raise TypeError("muligheder must be a int")
+        self._muligheder = value
+
+    @property
+    def maks(self):
+        return self._maks
+
+    @maks.setter
+    def maks(self, value):
+        if not isinstance(value, int):
+            raise TypeError("maks must be a int")
+        self._maks = value
