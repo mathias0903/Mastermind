@@ -5,7 +5,7 @@ import logiklag as ll
 class Testfunctions(ut.testcase):
 
     def test_notspecifiedinit(self):
-        testdatalag = dl.datalag()
+        testdatalag = dl.Datalag()
         self.assertEqual(testdatalag.brikker, 4)
         self.assertEqual(testdatalag.muligheder, 6)
         self.assertEqual(testdatalag.maks, 10)
@@ -13,7 +13,7 @@ class Testfunctions(ut.testcase):
         self.assertEqual(len(testdatalag.solution), testdatalag.brikker)
 
     def test_specifiedinit(self):
-        testdatalag = dl.datalag(brikker=6, muligheder=8, maks=12, solution=(4,6,1,2,3,8))
+        testdatalag = dl.Datalag(brikker=6, muligheder=8, maks=12, solution=(4,6,1,2,3,8))
         self.assertEqual(testdatalag.brikker , 6)
         self.assertEqual(testdatalag.muligheder , 8)
         self.assertEqual(testdatalag.maks , 12)
@@ -22,14 +22,14 @@ class Testfunctions(ut.testcase):
         self.assertEqual(testdatalag.solution, (4,6,1,2,3,8))
 
     def test_get(self):
-        testdatalag = dl.datalag(brikker=6, muligheder=8, maks=12, solution=(4,6,1,2,3,7))
+        testdatalag = dl.Datalag(brikker=6, muligheder=8, maks=12, solution=(4,6,1,2,3,7))
         self.assertEqual(testdatalag.getbrikker(), 6)
         self.assertEqual(testdatalag.getmuligheder(), 8)
         self.assertEqual(testdatalag.getmaks(), 12)
         self.assertEqual(testdatalag.getsolution(), (4,6,1,2,3,7))
 
     def test_set(self):
-        testdatalag = dl.datalag(brikker=6, muligheder=8, maks=12, solution=(4,6,1,2,3,7))
+        testdatalag = dl.Datalag(brikker=6, muligheder=8, maks=12, solution=(4,6,1,2,3,7))
         testdatalag.setbrikker(2)
         self.assertEqual(testdatalag.getbrikker(), 2)
         testdatalag.setmuligheder(69)
