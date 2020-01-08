@@ -22,7 +22,7 @@ class LogikLag:
                     if gæt[value] is solution[value]:
                         total_correct += 1
                 if total_correct==4:
-                    return "you won"
+                    return "you won, nice"
                 self.data.tur += 1
                 if self.data.tur >= self.data.maks:
                     return "game over"
