@@ -21,7 +21,7 @@ class LogikLag:
                 for value in range(0, self.data.brikker):
                     if gæt[value] is solution[value]:
                         total_correct += 1
-                if total_correct==4:
+                if total_correct==self.data.brikker:
                     return "you won, nice"
                 self.data.tur += 1
                 if self.data.tur >= self.data.maks:

@@ -4,6 +4,7 @@ import logiklag as ll
 
 class Testfunctions(ut.TestCase):
 
+#dl
     def test_notspecifiedinit(self):
         testdatalag = dl.Datalag()
         self.assertEqual(testdatalag.brikker, 4)
@@ -44,6 +45,29 @@ class Testfunctions(ut.TestCase):
             testdatalag.muligheder=4.0
         with self.assertRaises(TypeError):
             testdatalag.maks="EXDEE IM PICKLE WICK JOHN WICK FORTNITE UWU JOHN FORTNITE PICKLE WICK UWU"
+
+
+#ll
+
+    def test_valuecheckll(self):
+        testlogiklag=ll.Logiklag(brikker=6, muligheder=8, maks=12, solution=(4,6,1,2,3,7))
+        self.assertEqual(testlogiklag.gæt(self, (1,2,3,4,5)), False)
+        self.assertEqual(testlogiklag.gæt(self, (-1,2,3,4,5,6)), False)
+        self.assertEqual(testlogiklag.gæt(self, (1,2,3,4,5,9)), False)
+        self.assertEqual(testlogiklag.gæt(self, (1,2,3,4,5,"Me and the boys dropping in Iran")), False)
+        self.assertEqual(testlogiklag.gæt(self, (1,2,3,4,5,6.23354326)), False)
+
+    def test_winll(self):
+        testlogiklag=ll.Logiklag(brikker=6, muligheder=8, maks=12, solution=(4,6,1,2,3,7))
+        self.assertEqual(testlogiklag.gæt(self, (4,6,1,2,3,7)), "you won, nice")
+
+    def test_losell(self):
+        testlogiklag=ll.Logiklag(brikker=3, muligheder=6, maks=4, solution=(1,2,3))
+        testlogiklag.gæt(self, (4,5,6))
+        testlogiklag.gæt(self, (3,5,6))
+        testlogiklag.gæt(self, (3,2,5))
+        self.assertEqual(testlogiklag.gæt(self, (3,1,2)), "game over")
+
 
 
 if __name__ == '__main__':
