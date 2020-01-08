@@ -22,6 +22,9 @@ class LogikLag:
                     if gæt[value] is solution[value]:
                         total_correct += 1
                 if total_correct==4:
-                    return "you owned the libtards"
+                    return "you won"
+                self.data.tur += 1
+                if self.data.tur >= self.data.maks:
+                    return "game over"
                 return total_color, total_correct
         return False

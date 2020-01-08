@@ -2,10 +2,11 @@ import random
 
 
 class Datalag:
-    def __init__(self, brikker=4, muligheder=6, maks=10, solution=None):
+    def __init__(self, brikker=4, muligheder=6, maks=10, maks_tur=10, solution=None):
         self.brikker = brikker
         self.muligheder = muligheder
         self.maks = maks
+        self.tur = 0
         if solution is None:
             random.seed()
             self.solution = tuple(random.randint(0, muligheder-1) for i in range(brikker))
@@ -57,3 +58,13 @@ class Datalag:
         if not isinstance(value, int):
             raise TypeError("maks must be a int")
         self._maks = value
+
+    @property
+    def tur(self):
+        return self._tur
+
+    @tur.setter
+    def tur(self, value):
+        if not isinstance(value, int):
+            raise TypeError("tur must be a int")
+        self._tur = value
