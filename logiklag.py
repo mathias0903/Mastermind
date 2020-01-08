@@ -3,7 +3,7 @@ import datalag as dl
 
 class LogikLag:
     def __init__(self, brikker=4, muligheder=6, maks=10, *solution):
-        self.data = dl.datalag(brikker=brikker, muligheder=muligheder, maks=maks, *solution)
+        self.data = dl.Datalag(brikker=brikker, muligheder=muligheder, maks=maks, *solution)
         self.running = True
 
 
