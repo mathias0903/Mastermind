@@ -50,23 +50,23 @@ class Testfunctions(ut.TestCase):
 #ll
 
     def test_valuecheckll(self):
-        testlogiklag=ll.Logiklag(brikker=6, muligheder=8, maks=12, solution=(4,6,1,2,3,7))
-        self.assertEqual(testlogiklag.gæt(self, (1,2,3,4,5)), False)
-        self.assertEqual(testlogiklag.gæt(self, (-1,2,3,4,5,6)), False)
-        self.assertEqual(testlogiklag.gæt(self, (1,2,3,4,5,9)), False)
-        self.assertEqual(testlogiklag.gæt(self, (1,2,3,4,5,"Me and the boys dropping in Iran")), False)
-        self.assertEqual(testlogiklag.gæt(self, (1,2,3,4,5,6.23354326)), False)
+        testlogiklag=ll.LogikLag(brikker=6, muligheder=8, maks=12, solution=(4,6,1,2,3,7))
+        self.assertEqual(testlogiklag.gæt(1,2,3,4,5), False)
+        self.assertEqual(testlogiklag.gæt(-1,2,3,4,5,6), False)
+        self.assertEqual(testlogiklag.gæt(1,2,3,4,5,9), False)
+        self.assertEqual(testlogiklag.gæt(1,2,3,4,5,"Me and the boys dropping in Iran"), False)
+        self.assertEqual(testlogiklag.gæt(1,2,3,4,5,6.23354326), False)
 
     def test_winll(self):
-        testlogiklag=ll.Logiklag(brikker=6, muligheder=8, maks=12, solution=(4,6,1,2,3,7))
-        self.assertEqual(testlogiklag.gæt(self, (4,6,1,2,3,7)), "you won, nice")
+        testlogiklag=ll.LogikLag(brikker=6, muligheder=8, maks=12, solution=(4,6,1,2,3,7))
+        self.assertEqual(testlogiklag.gæt(4,6,1,2,3,7), "you won, nice")
 
     def test_losell(self):
-        testlogiklag=ll.Logiklag(brikker=3, muligheder=6, maks=4, solution=(1,2,3))
-        testlogiklag.gæt(self, (4,5,6))
-        testlogiklag.gæt(self, (3,5,6))
-        testlogiklag.gæt(self, (3,2,5))
-        self.assertEqual(testlogiklag.gæt(self, (3,1,2)), "game over")
+        testlogiklag=ll.LogikLag(brikker=3, muligheder=6, maks=4, solution=(1,2,3))
+        testlogiklag.gæt(4,5,6)
+        testlogiklag.gæt(3,5,6)
+        testlogiklag.gæt(3,2,5)
+        self.assertEqual(testlogiklag.gæt(3,1,2), "game over")
 
 
 
